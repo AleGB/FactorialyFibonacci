@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package factorialyfibonacci;
-
+//importaciones
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -20,28 +20,34 @@ import javax.swing.JTextField;
  * @author Usuario
  */
 public class ventana extends JFrame implements ActionListener {
-
+//definicion de atributos 
     private JLabel instruccion1;
     private JLabel instruccion2;
     private JTextField numero;
     private JButton botonfac;
     private JButton botonfibo;
-
+    
+/*inicializa los métodos que incluyen 
+ el diseño de la ventana y sus componentes*/
     public ventana() {
         configurarVentana();
         iniciarComponentes();
     }
 
+    //diseño de la ventana
     public void configurarVentana() {
-        setTitle("Factorial y Fibonacci");
-        setSize(400, 300);
+        setTitle("Factorial y Fibonacci");//titulo
+        setSize(400, 300);//tamaño
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
-        setBackground(new Color(220, 216, 255));
+        setBackground(new Color(220, 216, 255));//color
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    
+    /*inicializa los componentes de la 
+    ventana dandoles diseño y posición
+    y los agrega*/
     public void iniciarComponentes() {
         instruccion1 = new JLabel("Escribe un numero:");
         instruccion1.setBounds(10, 10, 150, 30);
@@ -73,7 +79,9 @@ public class ventana extends JFrame implements ActionListener {
         add(botonfibo);
 
     }
-
+/*metodo abstracto que recibe un evento 
+y decide si la acción será calcular el 
+factorial o si será calcular el fibonacci*/
     @Override
     public void actionPerformed(ActionEvent e) {
         int num = Integer.parseInt(numero.getText());
@@ -86,6 +94,8 @@ public class ventana extends JFrame implements ActionListener {
         }
     }
 
+    //metodo que calcula el factorial de un numero
+    //recibe de parametro el numero ingresado
     public int calculafactorial(int num) {
         int factorial = 1;
         for (int i = 1; i <= num; i++) {
@@ -93,7 +103,8 @@ public class ventana extends JFrame implements ActionListener {
         }
         return factorial;
     }
-
+    //metodo que calcula el la posicion fibonacci de un numero
+    //recibe de parametro el numero ingresado
     public int fibonacci(int num) {
         int fibo = 0;
         if (num == 0 || num == 1) {
